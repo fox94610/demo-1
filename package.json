@@ -1,0 +1,33 @@
+{
+  "name": "EazeDemo",
+  "version": "2.0.1",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.6",
+    "@fortawesome/free-regular-svg-icons": "^5.4.1",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "bootstrap": "^4.1.1",
+    "emotion": "^9.2.12",
+    "gsap": "^2.0.2",
+    "jquery": "^3.2.1",
+    "nodemon": "^1.12.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-emotion": "^9.2.12",
+    "react-helmet": "^5.2.0",
+    "react-scripts": "2.0.4",
+    "typeface-montserrat": "0.0.54"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

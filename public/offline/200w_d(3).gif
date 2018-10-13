@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="description" content="For animal people.">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <meta property="fb:app_id" content="406655189415060">
+    <meta property="og:site_name" content="GIPHY">
+    <meta property="og:url" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif">
+    <meta property="og:title" content="Dogs GIF by The Dodo - Find &amp; Share on GIPHY">
+    <meta property="og:description" content="For animal people.">
+
+    
+    <meta property="og:type" content="video.other">
+    <meta property="og:image" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif">
+    <meta property="og:image:type" content="image/gif">
+    <meta property="og:image:width" content="480">
+    <meta property="og:image:height" content="480">
+    
+    <meta property="og:video" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.mp4">
+    <meta property="og:video:secure_url" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.mp4">
+    <meta property="og:video:type" content="video/mp4">
+    <meta property="og:video:width" content="480">
+    <meta property="og:video:height" content="480">
+
+    <meta name="twitter:account_id" content="1020383864" />
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="Dogs GIF by The Dodo - Find &amp; Share on GIPHY">
+    <meta name="twitter:creator" content="@dodo">
+    <meta name="twitter:site" content="@giphy">
+    <meta name="twitter:description" content="For animal people.">
+    <meta name="twitter:image:src" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy-facebook_s.jpg">
+    <meta name="twitter:image" content="https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy-facebook_s.jpg">
+    <meta name="twitter:domain" content="giphy.com">
+
+    
+    <meta name="twitter:player" content="https://giphy.com/embed/1msxZUIsqN5pide6o5/twitter/iframe">
+    <meta name="twitter:player:width" content="435">
+    <meta name="twitter:player:height" content="435">
+    
+
+    
+    <meta name="rating" content="general">
+    <meta name="image:rating" content="g">
+    
+
+    <!-- /twitter seo -->
+
+    <meta name="description" content="For animal people."/>
+    <meta name="author" content="GIPHY"/>
+    <meta name="keywords" content="dog, dogs, the dodo, GIF, Animated GIF">
+    <meta name="pinterest" content="nohover">
+
+    
+    <link rel="alternate" type="application/json+oembed" href="https://giphy.com/services/oembed?url=https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif" title="Dogs GIF by The Dodo - Find &amp; Share on GIPHY oEmbed Lookup" />
+    
+    <title>Dogs GIF by The Dodo - Find &amp; Share on GIPHY</title>
+  </head>
+  <body style="background-color:#121212">
+    <article class="media">
+        
+    </article>
+    <!-- Google Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-38174542-34', 'auto');
+    
+    ga('set', 'userId', 8011490);
+    
+    ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+    <!-- Quantcast Tag -->
+<script type="text/javascript">
+    var _qevents = _qevents || [];
+    __qc = undefined;
+    (function() {
+        var elem = document.createElement('script');
+        elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge") + ".quantserve.com/quant.js";
+        elem.async = true;
+        elem.type = "text/javascript";
+        elem.id = "quantcast";
+        var scpt = document.getElementsByTagName('script')[0];
+        scpt.parentNode.insertBefore(elem, scpt);
+    })();
+    _qevents.push({
+        qacct:"p-PdxaRL3tyJt0S"
+    });
+</script>
+
+<noscript>
+    <div style="display:none;">
+        <img src="//pixel.quantserve.com/pixel/p-PdxaRL3tyJt0S.gif" border="0" height="1" width="1" alt="Quantcast"/>
+    </div>
+</noscript>
+<!-- End Quantcast tag -->
+
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"wlIjj1aAkN00Ei", domain:"giphy.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=wlIjj1aAkN00Ei" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+
+    <script src="/static/dist/runtime.92a74472.bundle.js"></script>
+    <script src="/static/dist/mediaLanding.2fbd36fa.bundle.js"></script>
+    <script>
+        var Giphy = Giphy || {};
+        if (Giphy.renderMediaLanding) {
+            Giphy.renderMediaLanding(document.querySelector('.media'), {
+                gif: {"rating": "g", "is_featured": false, "is_takedown": false, "source_post_url": "", "is_nsfw": false, "images": {"fixed_width": {"width": 200, "mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w.mp4", "webp_size": 175590, "mp4_size": 115353, "url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w.gif", "size": 559826, "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w.webp", "height": 200}, "downsized": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w_d.gif", "width": 200, "size": 2720321, "height": 200}, "fixed_height_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200_s.gif", "width": 200, "height": 200}, "fixed_width_downsampled": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w_d.gif", "height": 200, "width": 200, "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w_d.webp", "webp_size": 55770, "size": 185197}, "fixed_height_small_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100_s.gif", "width": 100, "height": 100}, "downsized_large": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif", "width": 480, "size": 2720321, "height": 480}, "original": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif", "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.webp", "height": 480, "width": 480, "mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.mp4", "frames": 19, "size": 2720321}, "original_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy_s.gif", "width": 480, "height": 480}, "looping": {"mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy-loop.mp4"}, "fixed_width_small": {"width": 100, "mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100w.mp4", "webp_size": 50994, "mp4_size": 32546, "url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100w.gif", "size": 153232, "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100w.webp", "height": 100}, "fixed_height_downsampled": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200_d.gif", "height": 200, "width": 200, "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200_d.webp", "webp_size": 55770, "size": 185197}, "source": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif", "width": 480, "size": 2720321, "frames": 19, "height": 480}, "fixed_width_small_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100w_s.gif", "width": 100, "height": 100}, "downsized_medium": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy.gif", "width": 480, "size": 2720321, "height": 480}, "fixed_height": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200.gif", "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200.webp", "height": 200, "width": 200, "mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200.mp4", "webp_size": 175590, "size": 559826}, "fixed_width_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/200w_s.gif", "width": 200, "height": 200}, "fixed_height_small": {"width": 100, "mp4": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100.mp4", "webp_size": 50994, "mp4_size": 32546, "url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100.gif", "size": 153232, "webp": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/100.webp", "height": 100}, "downsized_still": {"url": "https://media.giphy.com/media/1msxZUIsqN5pide6o5/giphy-downsized_s.gif", "width": 384, "height": 384}}, "is_hidden": false, "id": "1msxZUIsqN5pide6o5", "bitly_url": "https://gph.is/2JTXRlE", "title": "The Dodo GIF", "get_absolute_url": "/gifs/thedodo-dog-dogs-1msxZUIsqN5pide6o5", "update_datetime": "2018-04-30T14:45:59+00:00", "search_datetime": null, "type": "gif", "source_body": "", "username": "thedodo", "create_datetime": "2018-04-18T17:46:29+00:00", "embed_url": "https://giphy.com/embed/1msxZUIsqN5pide6o5", "tags": ["dog", "dogs", "the dodo"], "source_tld": "", "edit_status": "", "source_domain": "", "trending_datetime": null, "featured_tags_string": "", "featured_tags": [], "is_indexable": false, "is_removed": false, "user": {"username": "thedodo", "instagram_url": "https://instagram.com/thedodo", "display_name": "The Dodo", "name": "The Dodo", "banner_url": "https://media0.giphy.com/headers/thedodo/9Kx3dfPvUroA.png", "twitter_url": "https://twitter.com/dodo", "website_display_url": "www.thedodo.com", "facebook_url": "http://facebook.com/thedodosite/", "twitter": "@dodo", "suppress_chrome": false, "avatar_url": "https://media.giphy.com/avatars/thedodo/Ro5ehorTw8Eu.png", "website_url": "http://www.thedodo.com", "attribution_display_name": "The Dodo", "is_public": true, "tumblr_url": null, "profile_path": "/thedodo", "is_verified": true, "id": 7475, "profile_url": "https://giphy.com/thedodo", "description": "For animal people."}, "is_preserve_size": false, "slug": "thedodo-dog-dogs-1msxZUIsqN5pide6o5", "source_image_url": "/tmp/1msxZUIsqN5pide6o5.gif", "is_caption": false, "tags_string": "\ngiphydvr\ndog\ndogs\nthe dodo", "is_anonymous": false, "is_community": false, "url": "https://giphy.com/gifs/thedodo-dog-dogs-1msxZUIsqN5pide6o5", "source_content_url": "", "is_sticker": false, "search_id": "1aee1c82ea32f323ba11bc684b750a7f", "source_caption": "", "index_id": 60883331, "import_datetime": "2018-04-18T17:05:49+00:00", "is_realtime": false},
+                giphyUrl: 'https://giphy.com/',
+                renditionFilename: '200w_d.gif',
+                trackingQueryString: 'utm_source=media-link&utm_medium=landing&utm_campaign=Media%20Links&utm_term='
+            });
+        }
+    </script>
+  </body>
+</html>
