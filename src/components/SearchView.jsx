@@ -7,10 +7,6 @@ import $ from 'jquery'
 import ItemRect from '../components/ItemRect'
 
 
-// Add to foxflare.com
-// Save to Git (private, can share?)
-
-
 // TOMORROW
 // Clean up css syntax
 // Run through JS hint
