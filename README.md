@@ -10,7 +10,7 @@ Run locally
 npm start
 ```
 
-Build for production distribution
+Build for production
 ```
 npm run build
 ```
