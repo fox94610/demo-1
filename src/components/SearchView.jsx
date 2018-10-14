@@ -3,17 +3,7 @@ import PropTypes from 'prop-types'
 import { css } from 'emotion'
 import styled from 'react-emotion'
 import $ from 'jquery'
-
 import ItemRect from '../components/ItemRect'
-
-
-// TOMORROW
-// Clean up css syntax
-// Run through JS hint
-// Check cross-browser cross-device issues
-	// Mobile FF
-	// Edge
-	// IE
 
 
 const Wrapper = styled('div')`
@@ -78,9 +68,7 @@ export default class SearchView extends Component {
 			})
 		}
 
-		let apiGetRequest = this.props.online
-												? $.get(`https://api.giphy.com/v1/gifs/search?api_key=UxmV6ja022M8qVJzzcoWd1T8YOF3ZP2w&q=${this.searchString}&offset=${this.searchOffset}`)
-												: $.get(`./offline/trending.json`)
+		let apiGetRequest = $.get(`https://api.giphy.com/v1/gifs/search?api_key=UxmV6ja022M8qVJzzcoWd1T8YOF3ZP2w&q=${this.searchString}&offset=${this.searchOffset}`)
 		apiGetRequest.done(function(resp) {
 			let copyFromState = [...self.state.giphyData]
 			let finalData = [...copyFromState, ...resp.data]
@@ -105,7 +93,6 @@ export default class SearchView extends Component {
 										onFavBtnSelect={this.props.onFavBtnSelect}
 										favCollection={this.props.favCollection}
 										searchOffset={this.searchOffset}
-										online={this.props.online}
 										key={obj.id}
 									/>
 								)}
@@ -125,6 +112,5 @@ export default class SearchView extends Component {
 SearchView.propTypes = {
 	onPictureSelect: PropTypes.func,
 	favCollection: PropTypes.object,
-	onFavBtnSelect: PropTypes.func,
-	online: PropTypes.bool
+	onFavBtnSelect: PropTypes.func
 }

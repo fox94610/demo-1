@@ -83,10 +83,6 @@ export default class PicturePopup extends Component {
 		this.resizeTimeout = null
 		this.windowResizeHandler = this.windowResizeHandler.bind(this)
 		this.setFigureLayout = this.setFigureLayout.bind(this)
-
-		this.pictureUrl = this.props.online
-					? this.props.data.images.fixed_width.url
-					: `./offline/200w_d(${this.props.data.index}).gif`
 	}
 
 	componentWillUnmount() {
@@ -98,9 +94,9 @@ export default class PicturePopup extends Component {
   	this.setFigureLayout()
 	}
 
-	// Tried using css only: background img, object-fit: contain; max-width/height etc. but caused bugs w/ title and btn positioning
-	// Forced into using JS but it worked better than all of the above
-	// Now handles the worst of worst case scenarios that result from unknown window, image and popup dimensions
+	// Tried css only: background img, object-fit: contain; max-width/height etc... caused bugs w/ title and btn positioning
+	// Using JS, works better than all of the above
+	// Now handles worst of worst-case scenarios resulting from unknown window, image, and popup ratios
 	setFigureLayout() {
 
 		// Get constrained picture wi/ht
@@ -131,7 +127,7 @@ export default class PicturePopup extends Component {
 			this.resizeTimeout = setTimeout(function() {
 				self.resizeTimeout = null
 				self.setFigureLayout()
-			 // execute at a rate of 15fps
+			 // execute at approx 15fps
 			 }, 66)
 		}
 	}
@@ -150,7 +146,7 @@ export default class PicturePopup extends Component {
 				<Box>
 					<Layout>
 						<Figure className="figure">
-							<img className="gif" src={this.pictureUrl} alt={this.props.data.title} />
+							<img className="gif" src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
 							<Figcaption className="figcaption">{this.props.data.title.toUpperCase()}</Figcaption>
 							<Options className="options">
 								<button onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>{hasBeenFaved ? `REMOVE FAVORITE` : `ADD FAVORITE`}</button>
@@ -172,6 +168,5 @@ PicturePopup.propTypes = {
   data: PropTypes.object,
   onPopCloseSelect: PropTypes.func,
   favCollection: PropTypes.object,
-  onFavBtnSelect: PropTypes.func,
-  online: PropTypes.bool
+  onFavBtnSelect: PropTypes.func
 }

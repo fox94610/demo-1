@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import { colors } from '../components/ColorDefs'
 import { css } from 'emotion'
 import styled from 'react-emotion'
-import { colors } from '../components/ColorDefs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 let $ = require('jquery')
+
 
 const Wrapper = styled('div')`
   position: relative;
@@ -17,7 +18,7 @@ const emptyState = css`
   text-align: center;
   padding-top: 20px;
 `
-const FilmStrip = styled('section')`
+const ImageStrip = styled('section')`
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 `
@@ -68,16 +69,16 @@ const TrashBtn = styled('button')`
 export default class FavCollection extends Component {
 
   componentDidMount() {
-    // Add gradient to mobile safari version to compensate for bottom tray overlay
+    // Add gradient only to mobile safari - compensate for bottom tray overlaying bottom area
     const userAgent = window.navigator.userAgent;
     if ((userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) && userAgent.indexOf("CriOS")===-1) {
       $('.wrapper').css('background', colors.darkGreyGradientBg) 
     }
   }
 
-  resetFilmstrip() {
-    if (document.getElementsByClassName('filmstrip').length > 0)  {
-      document.getElementsByClassName('filmstrip')[0].scrollTo(0, 0)
+  resetImageStrip() {
+    if (document.getElementsByClassName('imageStrip').length > 0)  {
+      document.getElementsByClassName('imageStrip')[0].scrollTo(0, 0)
     }
   }
 
@@ -85,13 +86,13 @@ export default class FavCollection extends Component {
 
     let favoritesExist = this.props.favCollection && Object.keys(this.props.favCollection).length > 0
 
-    // Reverse keys order, so new picures show up to the left (beginning) not right (end)
+    // Reverse keys order, picures show up to the left not right of strip
     let reverseKeyList = favoritesExist ? Object.keys(this.props.favCollection).reverse() : null
 
     return (
       <Wrapper className="wrapper">
         {favoritesExist ? (
-          <FilmStrip className="filmstrip">
+          <ImageStrip className="imageStrip">
             <ThumbWrapper>
               {reverseKeyList.map((key, index) => (
                   <Figure onClick={()=>this.props.onPictureSelect(this.props.favCollection[key])} key={key}>
@@ -100,7 +101,7 @@ export default class FavCollection extends Component {
                 )
               )}
             </ThumbWrapper>
-          </FilmStrip>
+          </ImageStrip>
         ) : (
           <h2 className={emptyState}>ENTER SEARCH TERM<br />SELECT WHITE DOT TO ADD GIF</h2>
         )}
@@ -119,6 +120,5 @@ export default class FavCollection extends Component {
 FavCollection.propTypes = {
   favCollection: PropTypes.object,
   onPictureSelect: PropTypes.func,
-  handleFormSubmit: PropTypes.func,
-  online: PropTypes.bool
+  handleFormSubmit: PropTypes.func
 }

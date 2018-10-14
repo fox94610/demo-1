@@ -74,14 +74,10 @@ export default class ItemRect extends Component {
 			hasBeenFaved = this.props.favCollection.hasOwnProperty(this.props.data.id)
 		}
 
-		let url = this.props.online
-								? this.props.data.images.fixed_width.url
-								: `./offline/200w_d(${this.props.data.index}).gif`
-
 		return (
 			<Picture className={`col-6 col-sm-4 col-lg-3 item-rect-${this.props.index}`}>
 				<ImgWrapper onClick={()=>this.props.onPictureSelect(this.props.data)}>
-					<Gif src={url} alt={this.props.data.title} />
+					<Gif src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
 					<InvisButton onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
 						<div className={cx(buttonIndicator,{[favDisabled]:hasBeenFaved})} />
 					</InvisButton>
@@ -97,6 +93,5 @@ ItemRect.propTypes = {
   onFavBtnSelect: PropTypes.func,
   favCollection: PropTypes.object,
   index: PropTypes.number,
-  searchOffset: PropTypes.number,
-  online: PropTypes.bool
+  searchOffset: PropTypes.number
 }

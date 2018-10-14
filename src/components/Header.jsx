@@ -39,7 +39,6 @@ export default class Header extends Component {
 					<TextField
 						className="search-input"
 						type="text"
-						defaultValue="standing"
 						placeholder="Enter search term"
 					/>
 					<Button

@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { injectGlobal } from 'emotion'
 import styled from 'react-emotion'
-import { colors } from './components/ColorDefs'
 
-// App comprised of three rows
+// Proj specific
+import { colors } from './components/ColorDefs'
 import Header from './components/Header'
 import SearchView from './components/SearchView'
 import FavCollection from './components/FavCollection'
@@ -87,15 +87,15 @@ const headHt = 73
 let footHt = 100
 
 // Mobile Safari? Add height to compensate for browswer's bottom tray overlaying content.
-// You need to actually use a phone to expose Safari's bottom tray behavior (web dev headache that spans the globe).
-// desktop phone emulators don't expose this issue becasue they don't include the tray.
+// You need to actually use a phone to expose Safari's bottom tray behavior (web dev headache across the globe).
+// desktop phone emulators don't expose issue, they don't include tray.
 const userAgent = window.navigator.userAgent;
 if ((userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) && userAgent.indexOf("CriOS")===-1) {
 	footHt += 78
 }
 const combinedHt = headHt + footHt
 
-// Establish three main row heights immediately
+// Establish three main section heights immediately
 const Top = styled('header')`
 	height: ${headHt}px;
 	box-shadow: 0px 4px 27px -1px rgba(0,0,0,0.68);
@@ -134,7 +134,6 @@ class App extends Component {
 		this.onConfirmSelect = this.onConfirmSelect.bind(this)
 		this.deleteCollection = this.deleteCollection.bind(this)
 		this.onWarningCloseSelect = this.onWarningCloseSelect.bind(this)
-		this.online = true // Toggle to test/force edge cases
 	}
 
 	checkLocalStorage() {
@@ -160,6 +159,8 @@ class App extends Component {
 
 	onFavBtnSelect(e, data) {
 		e.stopPropagation()
+
+		// Toggle add/remove of gif
 		const favCollection = { ...this.state.favCollection }
 		if (favCollection.hasOwnProperty(data.id)) {
 			delete favCollection[data.id]
@@ -167,7 +168,7 @@ class App extends Component {
 			favCollection[data.id] = data
 			// If user has scrolled the strip around, without this action
 			// it's not apparent the new gif was added
-			this.favComp.resetFilmstrip()
+			this.favComp.resetImageStrip()
 		}
 		this.writeToLocalStorage(favCollection)
 		this.setState({ favCollection })
@@ -227,7 +228,6 @@ class App extends Component {
 								onPictureSelect={this.onPictureSelect}
 								favCollection={this.state.favCollection}
 								onFavBtnSelect={this.onFavBtnSelect}
-								online={this.online}
 							/>
 						</Middle>
 						<Bottom>
@@ -236,7 +236,6 @@ class App extends Component {
 								favCollection={this.state.favCollection}
 								onPictureSelect={this.onPictureSelect}
 								onTrashSelect={this.onTrashSelect}
-								online={this.online}
 							/>
 						</Bottom>
 						{this.state.popItemData &&
@@ -245,7 +244,6 @@ class App extends Component {
 								onPopCloseSelect={this.onPopCloseSelect}
 								favCollection={this.state.favCollection}
 								onFavBtnSelect={this.onFavBtnSelect}
-								online={this.online}
 							/>}
 						{this.state.displayWarning &&
 							<WarningPopup
