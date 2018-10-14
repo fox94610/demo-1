@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
+import { colors } from '../components/ColorDefs'
 import $ from 'jquery'
 
 const BackgroundTint = styled('div')`
@@ -63,6 +64,14 @@ const Figcaption = styled('figcaption')`
 	@media (min-width: 576px) {
     margin: 0 auto;
   }
+`
+const Detail = styled('span')`
+	font-size: 12px;
+	color: black;
+`
+const DetailValue = styled('span')`
+	font-size: 12px;
+	color: #9c9c9c;
 `
 const Options = styled('div')`
 	font-size: 12px;
@@ -147,10 +156,38 @@ export default class PicturePopup extends Component {
 					<Layout>
 						<Figure className="figure">
 							<img className="gif" src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
-							<Figcaption className="figcaption">{this.props.data.title.toUpperCase()}</Figcaption>
+							<Figcaption className="figcaption">
+
+								{this.props.data.title && (
+									<div>{this.props.data.title.toUpperCase()}</div>
+								)}
+
+								<Fragment>
+									<Detail>BY:</Detail>
+									<DetailValue>
+										{this.props.data.username ? (
+											<span> {this.props.data.username.toUpperCase()}</span>
+										) : (
+											<span> UNKNOWN</span>
+										)}
+									</DetailValue>
+								</Fragment>
+
+								{this.props.data.rating && (
+									<Fragment>
+										<Detail>, RATED: </Detail>
+										<DetailValue>{this.props.data.rating.toUpperCase()}</DetailValue>
+									</Fragment>
+								)}
+
+							</Figcaption>
 							<Options className="options">
-								<button onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>{hasBeenFaved ? `REMOVE FAVORITE` : `ADD FAVORITE`}</button>
-								<button><a href={this.props.data.bitly_url} target="_blank" rel="noopener noreferrer">SEE ON GIPHY</a></button>
+								<button onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
+									{hasBeenFaved ? `REMOVE FAVORITE` : `ADD FAVORITE`}
+								</button>
+								<button>
+									<a href={this.props.data.bitly_url} target="_blank" rel="noopener noreferrer">SEE ON GIPHY</a>
+								</button>
 							</Options>
 						</Figure>
 					</Layout>
