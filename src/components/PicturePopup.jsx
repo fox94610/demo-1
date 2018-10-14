@@ -71,7 +71,7 @@ const Detail = styled('span')`
 `
 const DetailValue = styled('span')`
 	font-size: 12px;
-	color: #9c9c9c;
+	color: ${colors.grey};
 `
 const Options = styled('div')`
 	font-size: 12px;
