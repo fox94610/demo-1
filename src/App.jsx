@@ -95,10 +95,15 @@ if ((userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) && userAgent.indexO
 }
 const combinedHt = headHt + footHt
 
+const MainCol = styled('div')`
+	padding-left: 0;
+	padding-right: 0;
+`
+
 // Establish three main section heights immediately
 const Top = styled('header')`
+	position: relative;
 	height: ${headHt}px;
-	box-shadow: 0px 4px 27px -1px rgba(0,0,0,0.68);
 `
 const Middle = styled('main')`
   height: calc(100vh - ${combinedHt}px);
@@ -106,12 +111,8 @@ const Middle = styled('main')`
   -webkit-overflow-scrolling: touch;
 `
 const Bottom = styled('footer')`
+	position: relative;
 	height: ${footHt}px;
-	box-shadow: 0px -4px 27px -1px rgba(0,0,0,0.9);
-`
-const MainCol = styled('div')`
-	padding-left: 0;
-	padding-right: 0;
 `
 
 class App extends Component {
@@ -200,7 +201,7 @@ class App extends Component {
 	}
 
 	deleteCollection() {
-		this.writeToLocalStorage(this.state.favCollection)
+		this.writeToLocalStorage({})
 		this.setState({ favCollection: null })
 	}
 
@@ -214,22 +215,28 @@ class App extends Component {
 		return (
 			<div className="container">
 				<div className="row">
+
 					<MainCol className="col">
+
 						<Helmet>
 							<meta charSet="utf-8" />
-							<title>FANTASTIC FLOWING "FILM" FILES</title>
+							<title>ANIMATED GIF SELECTOR</title>
 						</Helmet>
+
 						<Top>
 							<Header handleFormSubmit={this.handleFormSubmit} />
 						</Top>
-						<Middle>
+
+						<Middle className="middle">
 							<SearchView
 								ref={comp => this.searchComp = comp}
 								onPictureSelect={this.onPictureSelect}
 								favCollection={this.state.favCollection}
 								onFavBtnSelect={this.onFavBtnSelect}
+								combinedHt={combinedHt}
 							/>
 						</Middle>
+
 						<Bottom>
 							<FavCollection
 								ref={comp => this.favComp = comp}
@@ -238,6 +245,7 @@ class App extends Component {
 								onTrashSelect={this.onTrashSelect}
 							/>
 						</Bottom>
+
 						{this.state.popItemData &&
 							<PicturePopup
 								data={this.state.popItemData}
@@ -258,3 +266,5 @@ class App extends Component {
 }
 
 export default App
+
+

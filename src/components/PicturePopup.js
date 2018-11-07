@@ -6,7 +6,7 @@ import $ from 'jquery'
 
 const BackgroundTint = styled('div')`
 	position: fixed;
-	z-index: 1;
+	z-index: 3;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -26,7 +26,7 @@ const CloseBtn = styled('button')`
 `
 const Box = styled('div')`
 	position: fixed;
-	z-index: 2;
+	z-index: 3;
 	top: 17px;
 	left: 17px;
 	right: 17px;

@@ -1,5 +1,5 @@
 {
-  "name": "EazeDemo",
+  "name": "ANIMATED_GIF_SELECTOR",
   "version": "2.0.1",
   "private": true,
   "dependencies": {
@@ -16,6 +16,7 @@
     "react-emotion": "^9.2.12",
     "react-helmet": "^5.2.0",
     "react-scripts": "2.0.4",
+    "react-stack-grid": "^0.7.1",
     "typeface-montserrat": "0.0.54"
   },
   "scripts": {

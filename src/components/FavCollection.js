@@ -7,13 +7,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons'
 let $ = require('jquery')
 
-
 const Wrapper = styled('div')`
-  position: relative;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
   background: ${colors.darkGrey};
   height: 100%;
+  width: 100%;
+  box-shadow: 0px -4px 27px -1px rgba(0,0,0,0.9);
 `
-const emptyState = css`
+const EmptyState = styled('h2')`
   color: ${colors.lightGreen};
   text-align: center;
   padding-top: 20px;
@@ -90,20 +94,21 @@ export default class FavCollection extends Component {
     let reverseKeyList = favoritesExist ? Object.keys(this.props.favCollection).reverse() : null
 
     return (
+
       <Wrapper className="wrapper">
         {favoritesExist ? (
           <ImageStrip className="imageStrip">
             <ThumbWrapper>
               {reverseKeyList.map((key, index) => (
-                  <Figure onClick={()=>this.props.onPictureSelect(this.props.favCollection[key])} key={key}>
-                    <img src={this.props.favCollection[key].images.fixed_height_small.url} alt="" />
-                  </Figure>
+                <Figure onClick={()=>this.props.onPictureSelect(this.props.favCollection[key])} key={key}>
+                  <img src={this.props.favCollection[key].images.fixed_height_small.url} alt="" />
+                </Figure>
                 )
               )}
             </ThumbWrapper>
           </ImageStrip>
         ) : (
-          <h2 className={emptyState}>ENTER SEARCH TERM<br />SELECT WHITE DOT TO ADD GIF</h2>
+          <EmptyState>ENTER SEARCH TERM<br />SELECT WHITE DOT TO ADD GIF</EmptyState>
         )}
         {favoritesExist && (
           <TrashMask>
