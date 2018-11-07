@@ -100,17 +100,17 @@ const MainCol = styled('div')`
 	padding-right: 0;
 `
 
-// Establish three main section heights immediately
-const Top = styled('header')`
+// Establish heights for three main layout rows
+const HeadWrapper = styled('header')`
 	position: relative;
 	height: ${headHt}px;
 `
-const Middle = styled('main')`
+const MainWrapper = styled('main')`
   height: calc(100vh - ${combinedHt}px);
   overflow: scroll;
   -webkit-overflow-scrolling: touch;
 `
-const Bottom = styled('footer')`
+const FavCollectionWrapper = styled('footer')`
 	position: relative;
 	height: ${footHt}px;
 `
@@ -167,8 +167,7 @@ class App extends Component {
 			delete favCollection[data.id]
 		} else {
 			favCollection[data.id] = data
-			// If user has scrolled the strip around, without this action
-			// it's not apparent the new gif was added
+			// Ensures when user scrolls strip, then adds new gif, they will see gif added to beginning (scrolls to beginning of collection)
 			this.favComp.resetImageStrip()
 		}
 		this.writeToLocalStorage(favCollection)
@@ -223,11 +222,11 @@ class App extends Component {
 							<title>ANIMATED GIF SELECTOR</title>
 						</Helmet>
 
-						<Top>
+						<HeadWrapper>
 							<Header handleFormSubmit={this.handleFormSubmit} />
-						</Top>
+						</HeadWrapper>
 
-						<Middle className="middle">
+						<MainWrapper className="middle">
 							<SearchView
 								ref={comp => this.searchComp = comp}
 								onPictureSelect={this.onPictureSelect}
@@ -235,16 +234,16 @@ class App extends Component {
 								onFavBtnSelect={this.onFavBtnSelect}
 								combinedHt={combinedHt}
 							/>
-						</Middle>
+						</MainWrapper>
 
-						<Bottom>
+						<FavCollectionWrapper>
 							<FavCollection
 								ref={comp => this.favComp = comp}
 								favCollection={this.state.favCollection}
 								onPictureSelect={this.onPictureSelect}
 								onTrashSelect={this.onTrashSelect}
 							/>
-						</Bottom>
+						</FavCollectionWrapper>
 
 						{this.state.popItemData &&
 							<PicturePopup

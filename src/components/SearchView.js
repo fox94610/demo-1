@@ -111,11 +111,9 @@ export default class SearchView extends Component {
 		let apiGetRequest = $.get(`https://api.giphy.com/v1/gifs/search?api_key=UxmV6ja022M8qVJzzcoWd1T8YOF3ZP2w&q=${this.searchString}&offset=${this.searchOffset}`)
 		apiGetRequest.done(function(resp) {
 			//console.log("@@@ 'GET' DONE @@@")
-			let copyFromState = [...self.state.giphyData]
-			let finalData = [...copyFromState, ...resp.data]
-			self.setState({
-				giphyData: finalData
-			})
+			let oldData = [...self.state.giphyData]
+			let finalData = [...oldData, ...resp.data]
+			self.setState({giphyData: finalData})
 			self.enableEndOfContentListener()
 		})
 	}

@@ -103,16 +103,13 @@ export default class PicturePopup extends Component {
   	this.setFigureLayout()
 	}
 
-	// Tried css only: background img, object-fit: contain; max-width/height etc... caused bugs w/ title and btn positioning
-	// Using JS, works better than all of the above
-	// Now handles worst of worst-case scenarios resulting from unknown window, image, and popup ratios
 	setFigureLayout() {
 
 		// Get constrained picture wi/ht
 		let originalW = this.props.data.images.fixed_width.width
 		let originalH = this.props.data.images.fixed_width.height
-		let containerW = $('.figure').width()
-		let containerH = $('.figure').height()
+		let containerW = $('figure').width()
+		let containerH = $('figure').height()
     let picWi = Math.round((originalW * containerH) / originalH)
     let picHt = Math.round((containerW * originalH) / originalW)
 
@@ -154,7 +151,7 @@ export default class PicturePopup extends Component {
 				<BackgroundTint onClick={this.props.onPopCloseSelect}/>
 				<Box>
 					<Layout>
-						<Figure className="figure">
+						<Figure>
 							<img className="gif" src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
 							<Figcaption className="figcaption">
 

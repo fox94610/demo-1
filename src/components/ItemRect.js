@@ -3,14 +3,12 @@ import PropTypes from 'prop-types'
 import { cx, css } from 'emotion'
 import styled from 'react-emotion'
 import { colors } from '../components/ColorDefs'
-//import { TweenMax, Power4 } from 'gsap'
 const $ = require('jquery')
 
 
 const Picture = styled('picture')`
 	background-color: slategray;
 `
-// background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.1) 100%);
 const ImgWrapper = styled('div')`
 
 `
@@ -18,7 +16,7 @@ const Gif = styled('img')`
 	width: 100%;
 `
 const favBtnDiameter = 23
-const buttonIndicator = css`
+const buttonIndicatorStyle = css`
 	position: absolute;
 	width: ${favBtnDiameter}px;
 	height: ${favBtnDiameter}px;
@@ -26,7 +24,7 @@ const buttonIndicator = css`
 	background-color: white;
 	border: 1px solid grey;
 `
-const favDisabled = css`
+const hasFavoritedStyle = css`
 	background-color: ${colors.lightGreen};
 `
 // Extend hit area for UX
@@ -66,7 +64,7 @@ export default class ItemRect extends Component {
 				<ImgWrapper onClick={()=>this.props.onPictureSelect(this.props.data)}>
 					<Gif src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
 					<InvisButton onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
-						<div className={cx(buttonIndicator,{[favDisabled]:hasBeenFaved})} />
+						<div className={cx(buttonIndicatorStyle,{[hasFavoritedStyle]:hasBeenFaved})} />
 					</InvisButton>
 				</ImgWrapper>
 			</Picture>
