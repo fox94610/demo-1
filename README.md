@@ -1,8 +1,7 @@
 # Demonstrates
-React
-Emotion (https://emotion.sh/)
-Leverage of 3rd party API
-
+React 
+Emotion (https://emotion.sh/) 
+Leverage of 3rd party API 
 
 # Run locally
 Install dependencies
