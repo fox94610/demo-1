@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from 'react'
+// TODO, handle situation where there are so few initial items returned that
+// the app will try to load more gifs anyways to fill the screen
+// Use search "frw"
+
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
 import $ from 'jquery'
 import StackGrid from "react-stack-grid"; // https://github.com/tsuyoshiwada/react-stack-grid
 import ItemRect from '../components/ItemRect'
 
-// Utilities
-import ScrollAndResizeEvents from '../components/ScrollAndResizeEvents'
-
-  //height: 100%;
 const Wrapper = styled('div')`
 	position: relative;
   margin-top: 10px;
@@ -36,17 +36,31 @@ export default class SearchView extends Component {
 		this.callGiphyAPI = this.callGiphyAPI.bind(this)
 		this.searchString = null
 		this.searchOffset = 0
-		this.windowSizeChange = this.windowSizeChange.bind(this)
 		this.getSearchViewHt = this.getSearchViewHt.bind(this)
 		this.enableEndOfContentListener = this.enableEndOfContentListener.bind(this)
 		this.checkContent = this.checkContent.bind(this)
 		this.searchViewHt = this.getSearchViewHt()
+		this.windowResizeHandler = this.windowResizeHandler.bind(this)
 		this.callInProgress = false
-		this.numberOfBatches = 0
+
+		// For testing (avoid API rate limit)
+		this.calledOnce = false
 	}
 
 	componentDidMount() {
 		this.spinner = document.getElementsByClassName('spinner')[0]
+		window.addEventListener("resize", this.windowResizeHandler, false)
+	}
+
+	windowResizeHandler() {
+		const self = this
+		if (!this.resizeTimeout) {
+			this.resizeTimeout = setTimeout(function() {
+				self.resizeTimeout = null
+				self.searchViewHt = self.getSearchViewHt()
+			 // The actualResizeHandler will execute at a rate of 15fps
+			 }, 66)
+		}
 	}
 
 	checkContent() {
@@ -69,11 +83,7 @@ export default class SearchView extends Component {
 
 	getSearchViewHt() {
 		let windowHt = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight
-		return windowHt - this.props.combinedHt;
-	}
-
-	windowSizeChange(obj) {
-		this.searchViewHt = this.getSearchViewHt()
+		return windowHt - this.props.combinedHt
 	}
 
 	enableEndOfContentListener() {
@@ -97,6 +107,8 @@ export default class SearchView extends Component {
 	// Rate limit - 10k return per day
 	callGiphyAPI(loadMoreAction) {
 		const self = this
+		if (this.calledOnce) return
+		this.calledOnce = true
 		if (loadMoreAction) {
 			this.searchOffset += 25
 		} else {
@@ -114,7 +126,11 @@ export default class SearchView extends Component {
 			let oldData = [...self.state.giphyData]
 			let finalData = [...oldData, ...resp.data]
 			self.setState({giphyData: finalData})
-			self.enableEndOfContentListener()
+
+			// Make sure there are potentially more gifs to get before adding listener
+			if (resp.data.length >= 25 && resp.data.length !== 0) {
+				self.enableEndOfContentListener()
+			}
 		})
 	}
 
@@ -151,7 +167,6 @@ export default class SearchView extends Component {
 				<Spinner className='spinner'>
 					<img src={require('../assets/img/spinner-sml.gif')} alt="Delete button" />
 				</Spinner>
-				<ScrollAndResizeEvents windowSizeChange={this.windowSizeChange} />
 			</Wrapper>
 		)
 	}
