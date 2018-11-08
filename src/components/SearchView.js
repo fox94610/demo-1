@@ -44,7 +44,7 @@ export default class SearchView extends Component {
 		this.callInProgress = false
 
 		// For testing (avoid API rate limit)
-		this.calledOnce = false
+		//this.calledOnce = false
 	}
 
 	componentDidMount() {
@@ -107,8 +107,11 @@ export default class SearchView extends Component {
 	// Rate limit - 10k return per day
 	callGiphyAPI(loadMoreAction) {
 		const self = this
-		if (this.calledOnce) return
-		this.calledOnce = true
+
+		// Testing
+		//if (this.calledOnce) return
+		//this.calledOnce = true
+
 		if (loadMoreAction) {
 			this.searchOffset += 25
 		} else {
