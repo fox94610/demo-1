@@ -46,6 +46,7 @@ injectGlobal`
     color: ${colors.lightGrey};
     text-decoration: none;
     background-color: black;
+    cursor: pointer;
     
     &:link,
     &:visited {

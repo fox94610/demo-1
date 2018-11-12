@@ -32,6 +32,7 @@ const Button = styled('input')`
   border-radius: 0px;
   background-color: white;
   height: 30px;
+  cursor: pointer;
 `
 
 export default class Header extends Component {

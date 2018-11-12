@@ -82,6 +82,7 @@ const Options = styled('div')`
       background-color: black;
       padding: 3px 8px;
       margin: 0 6px;
+      cursor: pointer;
     }
 `
 

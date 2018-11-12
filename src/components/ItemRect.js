@@ -8,12 +8,7 @@ const $ = require('jquery')
 
 const Picture = styled('picture')`
   background-color: slategray;
-`
-const ImgWrapper = styled('div')`
-
-`
-const Gif = styled('img')`
-  width: 100%;
+  cursor: pointer;
 `
 const favBtnDiameter = 23
 const buttonIndicatorStyle = css`
@@ -57,13 +52,11 @@ export default class ItemRect extends Component {
     }
 
     return (
-      <Picture className={`item-rect-${this.props.index}`}>
-        <ImgWrapper onClick={()=>this.props.onPictureSelect(this.props.data)}>
-          <Gif src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
-          <InvisButton onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
-            <div className={cx(buttonIndicatorStyle,{[hasFavoritedStyle]:hasBeenFaved})} />
-          </InvisButton>
-        </ImgWrapper>
+      <Picture className={`item-rect-${this.props.index}`} onClick={()=>this.props.onPictureSelect(this.props.data)}>
+        <img src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
+        <InvisButton onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
+          <div className={cx(buttonIndicatorStyle,{[hasFavoritedStyle]:hasBeenFaved})} />
+        </InvisButton>
       </Picture>
     )
   }

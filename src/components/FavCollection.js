@@ -28,6 +28,7 @@ const ImageStrip = styled('section')`
 const ThumbWrapper = styled('div')`
   display: inline-flex;
   justify-content: flex-start;
+  cursor: pointer;
 `
 const Figure = styled('figure')`
   width: 100%;
