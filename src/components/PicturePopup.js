@@ -108,22 +108,22 @@ export default class PicturePopup extends Component {
 		// Get constrained picture wi/ht
 		let originalW = this.props.data.images.fixed_width.width
 		let originalH = this.props.data.images.fixed_width.height
-		let containerW = $('figure').width()
-		let containerH = $('figure').height()
+		let containerW = $(`.figure-${this.props.data.id}`).width()
+		let containerH = $(`.figure-${this.props.data.id}`).height()
     let picWi = Math.round((originalW * containerH) / originalH)
     let picHt = Math.round((containerW * originalH) / originalW)
 
     if (picHt < containerH) {
     	// Restricted by left/right
-    	$('.gif').height(picHt);
-    	$('.gif').width(containerW);
+    	$(`.gif-${this.props.data.id}`).height(picHt);
+    	$(`.gif-${this.props.data.id}`).width(containerW);
     	// Center picture vertically
 			let pushToCenter = (containerH - picHt) * 0.5
-			$('.gif').css('margin-top', pushToCenter+'px')
+			$(`.gif-${this.props.data.id}`).css('margin-top', pushToCenter+'px')
     } else {
     	// Restricted by top/bottom
-			$('.gif').width(picWi);
-			$('.gif').height(containerH);
+			$(`.gif-${this.props.data.id}`).width(picWi);
+			$(`.gif-${this.props.data.id}`).height(containerH);
     }
 	}
 
@@ -151,8 +151,8 @@ export default class PicturePopup extends Component {
 				<BackgroundTint onClick={this.props.onPopCloseSelect}/>
 				<Box>
 					<Layout>
-						<Figure>
-							<img className="gif" src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
+						<Figure className={`figure-${this.props.data.id}`}>
+							<img className={`gif-${this.props.data.id}`} src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
 							<Figcaption className="figcaption">
 
 								{this.props.data.title && (
