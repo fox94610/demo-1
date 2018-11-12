@@ -141,12 +141,12 @@ export default class PicturePopup extends Component {
       // Center picture vertically
       let pushToCenter = (containerH - picHt) * 0.5
       gif.css('margin-top', pushToCenter+'px')
-      spinner.css('top', (picHt - spinner.height()) * 0.5)
+      spinner.css('top', `${pushToCenter + ((picHt - spinner.height()) * 0.5)}px`)
     } else {
       // Restricted by top/bottom
       gif.width(picWi);
       gif.height(containerH);
-      spinner.css('top', (containerH - spinner.height()) * 0.5)
+      spinner.css('top', `${(containerH - spinner.height()) * 0.5}px`)
     }
   }
 
@@ -162,7 +162,6 @@ export default class PicturePopup extends Component {
   }
 
   imgOnLoadHandler() {
-    console.log("loaded")
     this.setState({imgLoaded: true})
   }
 
