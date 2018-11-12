@@ -106,8 +106,8 @@ export default class PicturePopup extends Component {
 	setFigureLayout() {
 
 		// Get constrained picture wi/ht
-		let originalW = this.props.data.images.fixed_width.width
-		let originalH = this.props.data.images.fixed_width.height
+		let originalW = this.props.data.images.downsized.width
+		let originalH = this.props.data.images.downsized.height
 		let containerW = $(`.figure-${this.props.data.id}`).width()
 		let containerH = $(`.figure-${this.props.data.id}`).height()
     let picWi = Math.round((originalW * containerH) / originalH)
@@ -146,13 +146,15 @@ export default class PicturePopup extends Component {
 			hasBeenFaved = this.props.favCollection.hasOwnProperty(this.props.data.id)
 		}
 
+    console.log(this.props.data.images)
+
     return (
 			<Fragment>
 				<BackgroundTint onClick={this.props.onPopCloseSelect}/>
 				<Box>
 					<Layout>
 						<Figure className={`figure-${this.props.data.id}`}>
-							<img className={`gif-${this.props.data.id}`} src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
+							<img className={`gif-${this.props.data.id}`} src={this.props.data.images.downsized.url} alt={this.props.data.title} />
 							<Figcaption className="figcaption">
 
 								{this.props.data.title && (
