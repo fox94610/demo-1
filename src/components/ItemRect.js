@@ -12,7 +12,6 @@ const Picture = styled('picture')`
 `
 const favBtnDiameter = 23
 const buttonIndicatorStyle = css`
-  position: absolute;
   width: ${favBtnDiameter}px;
   height: ${favBtnDiameter}px;
   border-radius: 50%;
@@ -25,13 +24,14 @@ const hasFavoritedStyle = css`
 // Extend hit area for UX
 const InvisButton = styled('button')`
   position: absolute;
-  right: 10px;
-  bottom: 10px;
+  bottom: 0;
+  right: 0;
   width: calc(${favBtnDiameter}px*2);
   height: calc(${favBtnDiameter}px*2);
   background-color: transparent;
   border: 1px solid transparent;
   border-radius: 0;
+  margin-right: -3px;
 `
 
 export default class ItemRect extends Component {

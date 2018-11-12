@@ -155,8 +155,8 @@ class App extends Component {
     }
   }
 
-  handleFormSubmit(e) {
-    this.searchComp.handleFormSubmit(e)
+  handleFormSubmit(query) {
+    this.searchComp.handleFormSubmit(query)
   }
 
   onFavBtnSelect(e, data) {

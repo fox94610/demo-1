@@ -88,11 +88,10 @@ export default class SearchView extends Component {
     }
   }
 
-  handleFormSubmit(e) {
-    e.preventDefault()
-    this.searchString = $(".search-input").get(0).value;
-    if (this.searchString !== '') {
-      this.callGiphyAPI();
+  handleFormSubmit(query) {
+    if (query !== '') {
+      this.searchString = query
+      this.callGiphyAPI()
     }
   }
 

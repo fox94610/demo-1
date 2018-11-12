@@ -37,6 +37,32 @@ const Button = styled('input')`
 
 export default class Header extends Component {
 
+  constructor(props) {
+    super(props)
+
+    let searchString = ''
+    if(window.location.search !== '') {
+      let key = window.location.search.substring(1, window.location.search.indexOf('='))
+      if (key === 'search') {
+        searchString = window.location.search.substring(window.location.search.indexOf('=')+1, window.location.search.length)
+        console.log(searchString)
+      }
+    }
+    this.state = {
+      searchString
+    }
+    this.inputChangeHandler = this.inputChangeHandler.bind(this)
+  }
+
+  componentDidMount() {
+    // Prepopulated search term via URL? Command search
+    if (this.state.searchString !== '') {
+      setTimeout(() => this.props.handleFormSubmit(this.state.searchString), 1000)
+    }
+  }
+
+  inputChangeHandler = (evt) => this.setState({searchString: evt.target.value})
+
   render() {
     return (
       <Wrapper>
@@ -46,13 +72,17 @@ export default class Header extends Component {
             className="search-input"
             type="text"
             placeholder="Enter search term"
-            onChange={()=>{}}
+            onChange={this.inputChangeHandler}
+            value={this.state.searchString}
           />
           <Button
             className="submit-btn"
             type="submit"
             value="Submit"
-            onClick={this.props.handleFormSubmit}
+            onClick={(e) => {
+              e.preventDefault();
+              this.props.handleFormSubmit(this.state.searchString)
+            }}
           />
         </FormTag>
       </Wrapper>
