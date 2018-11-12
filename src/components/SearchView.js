@@ -29,8 +29,7 @@ export default class SearchView extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      giphyData: [],
-      showSpinner: false
+      giphyData: []
     }
     this.handleFormSubmit = this.handleFormSubmit.bind(this)
     this.callGiphyAPI = this.callGiphyAPI.bind(this)
@@ -158,7 +157,7 @@ export default class SearchView extends Component {
           </StackGrid>
         </ReturnedItems>
         <Spinner className='spinner'>
-          <img src={require('../assets/img/spinner-sml.gif')} alt="Delete button" />
+          <img src={require('../assets/img/spinner-sml.gif')} alt="load spinner" />
         </Spinner>
       </Wrapper>
     )

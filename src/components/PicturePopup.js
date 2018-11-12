@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
+import { cx, css } from 'emotion'
 import styled from 'react-emotion'
 import { colors } from '../components/ColorDefs'
 import $ from 'jquery'
@@ -85,11 +86,27 @@ const Options = styled('div')`
       cursor: pointer;
     }
 `
+const spinnerStyle = css`
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  transform: translateX(-50%);
+    > img {
+      width: 70%;
+    }
+`
+const hasLoadedStyle = css`
+  display: none;
+`
 
 export default class PicturePopup extends Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      imgLoaded: false
+    }
+    this.imgOnLoadHandler = this.imgOnLoadHandler.bind(this)
     this.resizeTimeout = null
     this.windowResizeHandler = this.windowResizeHandler.bind(this)
     this.setFigureLayout = this.setFigureLayout.bind(this)
@@ -107,24 +124,29 @@ export default class PicturePopup extends Component {
   setFigureLayout() {
 
     // Get constrained picture wi/ht
-    let originalW = this.props.data.images.downsized.width
-    let originalH = this.props.data.images.downsized.height
-    let containerW = $(`.figure-${this.props.data.id}`).width()
-    let containerH = $(`.figure-${this.props.data.id}`).height()
-    let picWi = Math.round((originalW * containerH) / originalH)
-    let picHt = Math.round((containerW * originalH) / originalW)
+    const container = $(`.figure-${this.props.data.id}`)
+    const gif = $(`.gif-${this.props.data.id}`)
+    const spinner = $(`.spinner-${this.props.data.id}`)
+    const originalW = this.props.data.images.downsized.width
+    const originalH = this.props.data.images.downsized.height
+    const containerW = container.width()
+    const containerH = container.height()
+    const picWi = Math.round((originalW * containerH) / originalH)
+    const picHt = Math.round((containerW * originalH) / originalW)
 
     if (picHt < containerH) {
       // Restricted by left/right
-      $(`.gif-${this.props.data.id}`).height(picHt);
-      $(`.gif-${this.props.data.id}`).width(containerW);
+      gif.height(picHt);
+      gif.width(containerW);
       // Center picture vertically
       let pushToCenter = (containerH - picHt) * 0.5
-      $(`.gif-${this.props.data.id}`).css('margin-top', pushToCenter+'px')
+      gif.css('margin-top', pushToCenter+'px')
+      spinner.css('top', (picHt - spinner.height()) * 0.5)
     } else {
       // Restricted by top/bottom
-      $(`.gif-${this.props.data.id}`).width(picWi);
-      $(`.gif-${this.props.data.id}`).height(containerH);
+      gif.width(picWi);
+      gif.height(containerH);
+      spinner.css('top', (containerH - spinner.height()) * 0.5)
     }
   }
 
@@ -137,6 +159,11 @@ export default class PicturePopup extends Component {
        // execute at approx 15fps
        }, 66)
     }
+  }
+
+  imgOnLoadHandler() {
+    console.log("loaded")
+    this.setState({imgLoaded: true})
   }
 
   render() {
@@ -153,7 +180,7 @@ export default class PicturePopup extends Component {
         <Box>
           <Layout>
             <Figure className={`figure-${this.props.data.id}`}>
-              <img className={`gif-${this.props.data.id}`} src={this.props.data.images.downsized.url} alt={this.props.data.title} />
+              <img className={`gif-${this.props.data.id}`} src={this.props.data.images.downsized.url} onLoad={this.imgOnLoadHandler} alt={this.props.data.title} />
               <Figcaption className="figcaption">
 
                 {this.props.data.title && (
@@ -179,6 +206,11 @@ export default class PicturePopup extends Component {
                 )}
 
               </Figcaption>
+
+              <div className={`spinner-${this.props.data.id} ${cx(spinnerStyle, {[hasLoadedStyle]:this.state.imgLoaded})}`}>
+                <img src={require('../assets/img/spinner-sml.gif')} alt="load spinner" />
+              </div>
+
               <Options className="options">
                 <button onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
                   {hasBeenFaved ? `REMOVE FAVORITE` : `ADD FAVORITE`}

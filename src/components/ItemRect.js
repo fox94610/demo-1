@@ -55,7 +55,7 @@ export default class ItemRect extends Component {
       <Picture className={`item-rect-${this.props.index}`} onClick={()=>this.props.onPictureSelect(this.props.data)}>
         <img src={this.props.data.images.fixed_width.url} alt={this.props.data.title} />
         <InvisButton onClick={(e)=>this.props.onFavBtnSelect(e, this.props.data)}>
-          <div className={cx(buttonIndicatorStyle,{[hasFavoritedStyle]:hasBeenFaved})} />
+          <div className={cx(buttonIndicatorStyle, {[hasFavoritedStyle]:hasBeenFaved})} />
         </InvisButton>
       </Picture>
     )
