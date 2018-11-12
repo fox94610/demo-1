@@ -45,7 +45,7 @@ export default class Header extends Component {
       let key = window.location.search.substring(1, window.location.search.indexOf('='))
       if (key === 'search') {
         searchString = window.location.search.substring(window.location.search.indexOf('=')+1, window.location.search.length)
-        console.log(searchString)
+        searchString = searchString.replace('%20', ' ')
       }
     }
     this.state = {
