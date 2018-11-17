@@ -1,7 +1,3 @@
-// TODO, handle situation where there are so few initial items returned that
-// the app will try to load more gifs anyways to fill the screen
-// Use search "frw"
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'react-emotion'
