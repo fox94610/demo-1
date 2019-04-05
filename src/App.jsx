@@ -1,5 +1,3 @@
-// This is a feature item
-
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
 import { injectGlobal } from 'emotion'
